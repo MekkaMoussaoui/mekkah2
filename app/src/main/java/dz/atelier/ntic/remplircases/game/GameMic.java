@@ -9,6 +9,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -33,7 +34,7 @@ public class GameMic extends Activity implements RecognitionListener {
     int score;
     ImageView caption_image;
     int image_sphinx;
-
+    ImageButton DigitClick;
 
     String grammar_sphinx = "mot.gram";
     String dictionnaire_sphinx = "cmudict-fr-fr.dict";
@@ -52,6 +53,8 @@ public class GameMic extends Activity implements RecognitionListener {
         Bundle extras = getIntent().getExtras();
         //grammar_sphinx = extras.getString("grammar");
         image_sphinx = extras.getInt("image");
+        DigitClick = findViewById(R.id.DigitsID);
+        DigitClick.setEnabled(false);
 
 
         // Check if user has given permission to record audio
@@ -83,7 +86,10 @@ public class GameMic extends Activity implements RecognitionListener {
 
         @Override
         protected void onPostExecute(Exception result) {
+            if (result == null) {
+                DigitClick.setEnabled(true);
 
+            }
             caption_image = (ImageView)findViewById(R.id.caption_image);
             caption_image.setImageResource(image_sphinx);
         }

@@ -2,8 +2,12 @@ package dz.atelier.ntic.remplircases.game;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -34,15 +38,27 @@ public class AllUsersScores extends AppCompatActivity {
 
                 }
 
-                textView.setText(text.toString());
+
             }
-
-
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
             }
         });
+    }
+    public void onComplete() {
+        Task<AuthResult> task = null;
+        if(task.isSuccessful()){
+            textView.setText(text.toString());
+
+        }else{
+            Toast.makeText(AllUsersScores.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    public void statClick(View view) {
+        onComplete();
     }
 }

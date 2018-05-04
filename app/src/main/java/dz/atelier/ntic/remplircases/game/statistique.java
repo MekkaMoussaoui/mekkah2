@@ -18,6 +18,7 @@ public class statistique extends AppCompatActivity {
     private FirebaseAuth mAuth;
     DatabaseReference myref;
     FirebaseDatabase mdatabase;
+
     int value;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

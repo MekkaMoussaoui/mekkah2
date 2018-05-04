@@ -15,4 +15,14 @@
         android:layout_marginStart="151dp"
         android:layout_marginTop="224dp"
         android:text="TextView" />
+
+    <Button
+        android:id="@+id/Stat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/textView"
+        android:layout_marginTop="84dp"
+        android:onClick="statClick"
+        android:text="Stat" />
 </RelativeLayout>
