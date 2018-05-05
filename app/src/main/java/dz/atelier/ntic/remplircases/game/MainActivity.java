@@ -152,8 +152,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(myintent);
 
                 }else{
-                    if (task.getException().getMessage().equals("A network error (such as timeout, interrupted connection or unreachable host) has occurred."))
-                        Toast.makeText(MainActivity.this, "uyuyuyy", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                  }
             }
         });

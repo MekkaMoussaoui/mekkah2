@@ -5,9 +5,9 @@ package dz.atelier.ntic.remplircases.game;
  */
 
 public class User {
-    String username;
+    static String username;
     int age;
-    int score;
+    static int score;
 
     public User() {
     }

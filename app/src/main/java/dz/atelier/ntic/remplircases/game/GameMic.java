@@ -68,6 +68,7 @@ public class GameMic extends Activity implements RecognitionListener {
 
     private class SetupTask extends AsyncTask<Void, Void, Exception> {
         WeakReference<GameMic> activityReference;
+
         SetupTask(GameMic activity) {
             this.activityReference = new WeakReference<>(activity);
         }
@@ -78,7 +79,7 @@ public class GameMic extends Activity implements RecognitionListener {
                 Assets assets = new Assets(activityReference.get());
                 File assetDir = assets.syncAssets();
                 activityReference.get().setupRecognizer(assetDir);
-                } catch (IOException e) {
+            } catch (IOException e) {
                 return e;
             }
             return null;
@@ -90,13 +91,13 @@ public class GameMic extends Activity implements RecognitionListener {
                 DigitClick.setEnabled(true);
 
             }
-            caption_image = (ImageView)findViewById(R.id.caption_image);
+            caption_image = (ImageView) findViewById(R.id.caption_image);
             caption_image.setImageResource(image_sphinx);
         }
     }
 
-     @Override
-    public void onRequestPermissionsResult(int requestCode,@NonNull String[] permissions, @NonNull  int[] grantResults) {
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == PERMISSIONS_REQUEST_RECORD_AUDIO) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -129,7 +130,7 @@ public class GameMic extends Activity implements RecognitionListener {
     }
 
     ////////////////////////////////////////////////
-    public Boolean getAnswer(String mot_a_prononce, Hypothesis hypothesis){
+    public Boolean getAnswer(String mot_a_prononce, Hypothesis hypothesis) {
         if (hypothesis.getHypstr().equals(mot_a_prononce))
             return true;
         else
@@ -177,7 +178,6 @@ public class GameMic extends Activity implements RecognitionListener {
     }
 
 
-
     private void setupRecognizer(File assetsDir) throws IOException {
         // The recognizer can be configured to perform multiple searches
         // of different kind and switch between them
@@ -216,7 +216,7 @@ public class GameMic extends Activity implements RecognitionListener {
 
 
     ////////////////////////////////////////////////////
-    public float getScoreStars(int getBestScore){
+    public float getScoreStars(int getBestScore) {
         if (getBestScore <= 0 && getBestScore > -1000)
             return 3.0f;
         else if (getBestScore <= -1000 && getBestScore > -2000)

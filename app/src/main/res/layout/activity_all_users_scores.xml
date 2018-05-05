@@ -25,4 +25,23 @@
         android:layout_marginTop="84dp"
         android:onClick="statClick"
         android:text="Stat" />
+
+    <Button
+        android:id="@+id/sortId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="83dp"
+        android:onClick="SortOn"
+        android:text="Sort" />
+
+    <TextView
+        android:id="@+id/textSort"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sortId"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="11dp"
+        android:text="TextVie" />
 </RelativeLayout>

@@ -71,6 +71,8 @@ public class SignUp extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
                     Toast.makeText(getApplicationContext(),"User registered succesfull",Toast.LENGTH_SHORT).show();
+
+
                     startActivity(new Intent(SignUp.this,statistique.class));
                     String user_id = mAuth.getCurrentUser().getUid();
                     DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("User").child(user_id);
